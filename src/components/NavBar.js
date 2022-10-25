@@ -1,27 +1,3 @@
-// // import React, { useState } from 'react';
-// import React from 'react';
-// import {Link} from 'react-router-dom'
-// // import {
-// //     MDBCollapse,
-// //     MDBDropdown,
-// //     MDBDropdownMenu,
-// //     MDBDropdownToggle,
-// //     MDBDropdownItem,
-// // } from 'mdb-react-ui-kit';
-
-// function NavBar () {
-
-//     return (
-//         <nav>
-//             <Link to='/'>Home</Link>
-//             <Link to='/products'>Products</Link>
-//             <Link to='/suppliers'>Suppliers</Link>
-//         </nav>
-//     )
-// }
-
-// export default NavBar
-
 import React, { useState } from 'react';
 import {
     MDBContainer,
