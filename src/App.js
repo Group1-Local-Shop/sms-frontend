@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Suppliers from './components/suppliers/Suppliers';
+import Home from './components/Home'
+import Products from './components/products/Products'
+import NavBar from './components/NavBar'
+import Page404 from './Page404';
+import ProductForm from './components/products/ProductForm';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <NavBar />
       </header>
-    </div>
+      
+      <Routes>
+        <Route path='/' element={ <Home /> } />
+        <Route path='/products' element={ <Products /> }>
+          <Route path='productform' element={<ProductForm/>} />
+        </Route>
+        <Route path='/suppliers' element={ <Suppliers /> } />
+        <Route path='*' element={<Page404 />} />
+      </Routes>
+    </>
   );
 }
 
