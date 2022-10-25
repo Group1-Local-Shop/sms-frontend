@@ -1,7 +1,6 @@
 import React from "react"
 import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer, MDBBtn } from 'mdb-react-ui-kit';
 import { useNavigate } from 'react-router-dom'
-// import ProductForm from "./ProductForm";
 import { Link, Outlet } from 'react-router-dom'
 
 
@@ -13,9 +12,6 @@ function Products() {
 
         <>
         <br/>
-        {/* <div style={{ marginRight: "auto" }}>
-            <MDBBtn>Add</MDBBtn>
-        </div> */}
             <MDBContainer fluid>
                 <h3>Products List</h3>
                 <nav>
@@ -59,11 +55,7 @@ function Products() {
                         <td>@mdo</td>
                         <td>@mdo</td>
                         </tr>
-                        {/* <tr>
-                        <th scope='row'>3</th>
-                        <td colSpan={2}>Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr> */}
+
                     </MDBTableBody>
                 </MDBTable>
             </MDBContainer>
