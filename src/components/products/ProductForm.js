@@ -4,6 +4,8 @@ import { MDBInputGroup, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdo
 
 function ProductForm() {
 
+    ## https://www.geeksforgeeks.org/how-to-pass-data-into-table-from-a-form-using-react-components/ ##
+
     return (
         <>
             <MDBInputGroup className='mb-3'>

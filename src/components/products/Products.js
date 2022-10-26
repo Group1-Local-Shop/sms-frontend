@@ -1,12 +1,10 @@
 import React from "react"
 import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer, MDBBtn } from 'mdb-react-ui-kit';
-import { useNavigate } from 'react-router-dom'
 import { Link, Outlet } from 'react-router-dom'
 
 
 function Products() {
 
-    const navigator = useNavigate()
 
     return (
 
@@ -38,7 +36,9 @@ function Products() {
                         <th scope='col'>Selling Price</th>
                         </tr>
                     </MDBTableHead>
-                    <MDBTableBody>
+                    <MDBTableBody>                          
+                        ## the table is to be deleted. using fetch the table should be filled##
+                        ## https://www.makeuseof.com/react-generate-table-from-json/ ###
                         <tr>
                         <th scope='row'>1</th>
                         <td>Mark</td>
