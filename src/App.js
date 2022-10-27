@@ -8,8 +8,11 @@ import Products from './components/products/Products'
 import NavBar from './components/NavBar'
 import Page404 from './Page404';
 import ProductForm from './components/products/ProductForm';
-import { useEffect } from 'react';
-import { useState } from 'react';
+
+import AddAdmins from './components/superuser/AddAdmins';
+import { useState,useEffect } from 'react';
+
+
 
 
 function App() {
@@ -48,6 +51,7 @@ function App() {
         <Route path='/products' element={ <Products /> }>
           <Route path='productform' element={<ProductForm/>} />
         </Route>
+        <Route path ='Adminsignup' element={<AddAdmins/>}/>
         <Route path='/suppliers' element={ <Suppliers /> } />
         <Route path='*' element={<Page404 />} />
       </Routes>
