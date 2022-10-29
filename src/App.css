@@ -1,12 +1,12 @@
-body{
+ body{
   font-family: 'Times New Roman', Times, serif;
   box-sizing: border-box;
 }
-.sign{
+  .sign{
   margin-left: 20%;
   text-transform:uppercase;
   font-size:30px;
-}
+} 
 .admin{
   display: flex;
   flex-direction: column;
@@ -25,15 +25,15 @@ body{
 .username input,.password input,.password-confirm input,.email input, .first input, .last input, .num input, .role input{
   width: 800px;
   border-radius: 10px;
-  border:solid 1px black;
-  color: white;
+  border:solid 1px ;
+ 
 }
 .btn{
  margin: 150px;
  margin-top: 10px;
   width: 200px;
   border-radius: 10px;
-  border:solid 1px black;
+  border:solid 1px ;
   color: white;
   
-}
+}  

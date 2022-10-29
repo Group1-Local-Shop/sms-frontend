@@ -11,34 +11,36 @@ import ProductForm from './components/products/ProductForm';
 
 import AddAdmins from './components/superuser/AddAdmins';
 import { useState,useEffect } from 'react';
+import Merchant from './components/merchant/Merchant';
+import Clerk from './components/clerks/Clerk';
 
 
 
 
 function App() {
 
-  const [product, setProduct] = useState([])
-  const [store, setStore] = useState([])
+  // const [product, setProduct] = useState([])
+  // const [store, setStore] = useState([])
 
 
-  function getProduct(){
-    fetch("http://localhost:3000/products")
-    .then(res => res.json())
-    .then(product => setProduct(product))
-  }
+  // function getProduct(){
+  //   fetch("http://localhost:3000/products")
+  //   .then(res => res.json())
+  //   .then(product => setProduct(product))
+  // }
 
-  useEffect(() => {
-    getProduct();
-  }, [])
+  // useEffect(() => {
+  //   getProduct();
+  // }, [])
 
-  function getStore(){
-    fetch("http://localhost:3000/stores")
-    .then(res => res.json())
-    .then(store => setStore(store))
-  }
-  useEffect(() => {
-    getStore();
-  }, []);
+  // function getStore(){
+  //   fetch("http://localhost:3000/stores")
+  //   .then(res => res.json())
+  //   .then(store => setStore(store))
+  // }
+  // useEffect(() => {
+  //   getStore();
+  // }, []);
   return (
     <>
       <header>
@@ -53,7 +55,10 @@ function App() {
         </Route>
         <Route path ='Adminsignup' element={<AddAdmins/>}/>
         <Route path='/suppliers' element={ <Suppliers /> } />
+        <Route path='merchant' element={ <Merchant/>}/>
+        <Route path="clerk" element={<Clerk/>}/>
         <Route path='*' element={<Page404 />} />
+
       </Routes>
     </>
   );
