@@ -13,6 +13,10 @@ import AddAdmins from './components/superuser/AddAdmins';
 import { useState,useEffect } from 'react';
 import Merchant from './components/merchant/Merchant';
 import Clerk from './components/clerks/Clerk';
+import Login from './components/Login';
+import ClerkLogin from './components/clerks/ClerkLogin';
+import MerchantLogin from './components/merchant/MerchantLogin';
+
 
 
 
@@ -57,6 +61,9 @@ function App() {
         <Route path='/suppliers' element={ <Suppliers /> } />
         <Route path='merchant' element={ <Merchant/>}/>
         <Route path="clerk" element={<Clerk/>}/>
+         <Route path="adminlogin" element={<Login/>}/>
+         <Route path="login" element={<ClerkLogin/>}/>
+           <Route path="merchantLogin" element={<MerchantLogin/>}/>
         <Route path='*' element={<Page404 />} />
 
       </Routes>

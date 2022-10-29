@@ -39,14 +39,13 @@ import {
                 <MDBNavbarItem>
                 <MDBNavbarLink href='/suppliers'>Suppliers</MDBNavbarLink>
                 </MDBNavbarItem>
-                 <MDBNavbarItem>
-                <MDBNavbarLink href='/Adminsignup'>Adminsignup</MDBNavbarLink>
-                </MDBNavbarItem>
+                 
                 <MDBNavbarItem>
-                <MDBNavbarLink href='/merchant'>MerchantSignup</MDBNavbarLink>
+                <MDBNavbarLink href='/merchantLogin'>MerchantLogin</MDBNavbarLink>
                 </MDBNavbarItem>
+                
                 <MDBNavbarItem>
-                <MDBNavbarLink href='/clerk'>ClerkSignup</MDBNavbarLink>
+                <MDBNavbarLink href='/adminlogin'> adminLogin</MDBNavbarLink>
                 </MDBNavbarItem>
                 {/* <MDBNavbarItem>
                 <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
