@@ -1,68 +1,52 @@
-import axios from "axios"
-import React, { useContext, useState } from "react"
-import { myContext } from "../context/Context"
-import Merchant from "../merchant/Merchant"
+import React, {useState, useContext} from 'react'
+import { myContext } from '../context/Context'
 
-
-// :username, :password, :email,:role,:first_name,:last_name, :phone_no, :password_confirmation)
-  
-
-function AddAdmins() {
-    const {admin,setAdmin,username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
+const Merchant = () => {
+    const {username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
-,phoneNo,setPhoneNo}=useContext(myContext)
-    
-    const handleSubmit=(e)=>{
-        e.preventDefault();
-        fetch("http://localhost:3000/admins",{
+,merchant,setMerchant}=useContext(myContext)
+
+   const handleSubmit=(e)=>{
+    e.preventDefault();
+     e.preventDefault();
+        fetch("http://localhost:3000/merchants",{
             method:"POST",
           headers: {
             "Content-Type": "application/json",
            Accept: "application/json"
         },
          body:JSON.stringify({
-            admin:{ 
+            merchant:{ 
             username: username,
             password: password,
             password_confirmation: passwordConfirmation,
             email:email,
             first_name: firstName,
             last_name:lastName,
-            role:role,
-            phone_no:phoneNo}
+            role:role}
         })
-        })
-        .then((resp)=>resp.json())
-        .then((data)=>{
-            console.log(data)
+        .then(res=>res.json())
+        .then(data=>{
             localStorage.setItem("jwt", data.jwt);
-           setAdmin(data.admin)
-            setAdmin([data, ...admin])
-            setUsername("")
-            setPassword("")
-            setPasswordConfirmation("")
-            setEmail("")
-            setFirstName("")
-            setLastName("")
-            setRole("")
-            setPhoneNo("")
+           setMerchant(data.merchant)
+           setMerchant(data, ...merchant)
+           setUsername("")
+           setPassword("")
+           setEmail("")
+           setPasswordConfirmation("")
+           setRole("")
         })
-        
-    }
-   console.log(username)
-   console.log(passwordConfirmation)
-  
-    return (
-
-        <>
-            <div>
-                <h1 className="sign">Admin Signup</h1>
-                <form className="admin" onSubmit={handleSubmit}>
-                     <label className="username">
+    })
+   }
+   
+  return (
+    <div>
+        <form className='admin' onSubmit={handleSubmit}>
+            <label className='username'>
                 Username:
                 <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
             </label>
-                    <label className="password">
+             <label className="password">
                         password:
                         <input type="text" 
                         name="text" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
@@ -95,11 +79,6 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                         value={lastName} 
                         onChange={(e)=>setLastName(e.target.value)}/>
                     </label>
-                    <label className="num">
-                        Phone No:
-                        <input type="text" name="phoneno" placeholder="Enter phone number"
-                        value={phoneNo} onChange={(e)=>setPhoneNo(e.target.value)}/>
-                    </label>
                     <label className="role">
                         Role:
                         <input type="text" placeholder="Enter role" 
@@ -107,21 +86,9 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                         onChange={(e)=>setRole(e.target.value)}/>
                     </label>
                    <button className="btn">submit</button>
-                </form>
-                
-            </div>
-            <Merchant password={password} setPassword={setPassword} 
-            username={username} setUsername={setUsername}
-            passwordConfirmation={passwordConfirmation} setPasswordConfirmation={setPasswordConfirmation} 
-            phoneNo={phoneNo} setPhoneNo={setPhoneNo} 
-            lastName={lastName} setLastName={setLastName} 
-            firstName={firstName} setFirstName={setFirstName} 
-            email={email} setEmail={setEmail} 
-            role={role} setRole={setRole}/>
-        </>
-
-    )
+        </form>
+    </div>
+  )
 }
 
-export default AddAdmins
-
+export default Merchant

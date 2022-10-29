@@ -1,20 +1,13 @@
-import axios from "axios"
-import React, { useContext, useState } from "react"
-import { myContext } from "../context/Context"
-import Merchant from "../merchant/Merchant"
+import React, { useContext } from 'react'
+import { myContext } from '../context/Context'
 
-
-// :username, :password, :email,:role,:first_name,:last_name, :phone_no, :password_confirmation)
-  
-
-function AddAdmins() {
-    const {admin,setAdmin,username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
+const Clerk = () => {
+    const {username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
-,phoneNo,setPhoneNo}=useContext(myContext)
-    
-    const handleSubmit=(e)=>{
+,clerk,setClerk,adminId, setAdminId}=useContext(myContext)
+const handleSubmit=(e)=>{
         e.preventDefault();
-        fetch("http://localhost:3000/admins",{
+        fetch("http://localhost:3000/api/v1/clerks",{
             method:"POST",
           headers: {
             "Content-Type": "application/json",
@@ -29,15 +22,15 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
             first_name: firstName,
             last_name:lastName,
             role:role,
-            phone_no:phoneNo}
+            admin_id:adminId}
         })
         })
         .then((resp)=>resp.json())
         .then((data)=>{
             console.log(data)
             localStorage.setItem("jwt", data.jwt);
-           setAdmin(data.admin)
-            setAdmin([data, ...admin])
+           setClerk(data.clerk)
+            setClerk([data, ...clerk])
             setUsername("")
             setPassword("")
             setPasswordConfirmation("")
@@ -45,18 +38,13 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
             setFirstName("")
             setLastName("")
             setRole("")
-            setPhoneNo("")
+            setAdminId("")
         })
-        
     }
-   console.log(username)
-   console.log(passwordConfirmation)
-  
-    return (
-
-        <>
+  return (
+  <>
             <div>
-                <h1 className="sign">Admin Signup</h1>
+                <h1 className="sign">Clerk Signup</h1>
                 <form className="admin" onSubmit={handleSubmit}>
                      <label className="username">
                 Username:
@@ -98,7 +86,7 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                     <label className="num">
                         Phone No:
                         <input type="text" name="phoneno" placeholder="Enter phone number"
-                        value={phoneNo} onChange={(e)=>setPhoneNo(e.target.value)}/>
+                        value={adminId} onChange={(e)=>setAdminId(e.target.value)}/>
                     </label>
                     <label className="role">
                         Role:
@@ -110,18 +98,10 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                 </form>
                 
             </div>
-            <Merchant password={password} setPassword={setPassword} 
-            username={username} setUsername={setUsername}
-            passwordConfirmation={passwordConfirmation} setPasswordConfirmation={setPasswordConfirmation} 
-            phoneNo={phoneNo} setPhoneNo={setPhoneNo} 
-            lastName={lastName} setLastName={setLastName} 
-            firstName={firstName} setFirstName={setFirstName} 
-            email={email} setEmail={setEmail} 
-            role={role} setRole={setRole}/>
+            
         </>
 
     )
 }
 
-export default AddAdmins
-
+export default Clerk
