@@ -14,6 +14,7 @@ export const AppContext = ({children}) => {
     const [merchant,setMerchant]=useState([])
     const[clerk,setClerk]= useState([])
     const[adminId, setAdminId]= useState("")
+    
   return <myContext.Provider value={{admin,setAdmin,username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
 ,phoneNo,setPhoneNo,merchant,setMerchant,clerk,setClerk,adminId, setAdminId}}>{children}</myContext.Provider>

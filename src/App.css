@@ -23,7 +23,7 @@
   margin-left: 70px;
 }
 .username input,.password input,.password-confirm input,.email input, .first input, .last input, .num input, .role input{
-  width: 800px;
+  width: 400px;
   border-radius: 10px;
   border:solid 1px ;
  
@@ -37,3 +37,113 @@
   color: white;
   
 }  
+.product{
+  display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.products{
+  align-items: center;
+}
+.product img{
+   width: 200px;
+   height: 200px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin: 10px;
+    transition: all 0.4s ease;
+}
+.product p{
+  width: 200px;
+}
+.signup{
+  position:relative;
+  width:500px ;
+  text-align: center;
+}
+
+.signup a{
+  color: black;
+  position: absolute;
+  bottom:400%;
+  left:20%;
+  text-transform: capitalize;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  border-radius: 10px;
+   border: solid 1px rgb(180, 177, 177); 
+
+}
+.banner{
+  width:100%;
+  height:88vh;
+  background-color: rgb(253, 250, 250);
+  position:relative;
+}
+.banner img{
+  width:100%;
+  height: 88.4vh;
+  object-fit: cover;
+}
+.banner-cover{
+  width: 100%;
+  height: 88.4vh;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color:rgba(0, 0, 0, 0.5);
+}
+.banner-words{
+  max-width: 500px;
+  height: 350px;
+  margin:100px auto;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.words{
+ color:#fff;
+ font-size: 2rem;
+ margin-top: 25%;
+}
+.words::first-letter{
+  text-transform: capitalize;
+}
+.show-btn{
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  margin-top: 30px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+.show-btn a {
+  text-decoration: none;
+  color: #000;
+}
+.circ-container{
+  width: 80px;
+  height: 50px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin: auto;
+}
+.circ{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+.circ-active{
+  background-color: red;
+}

@@ -1,71 +1,45 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer, MDBBtn } from 'mdb-react-ui-kit';
 import { Link, Outlet } from 'react-router-dom'
+import axios from "axios";
 
 
 function Products() {
-
-
+const [products, setProducts]=useState([])
+useEffect(()=>{
+ axios.get("http://localhost:3000/products")
+ .then(product=>setProducts(product.data))
+},[]) 
     return (
 
         <>
         <br/>
-            <MDBContainer fluid>
-                <h3>Products List</h3>
-                <nav>
-                    <Link to='productform'>
-                        <MDBBtn color="primary" className="position-relative">
-                        Add
-                            <span
-                                className="position-absolute top-0 start-100 translate-middle badge border border-light">
-                            </span>
-                        </MDBBtn>
-                    </Link> 
-                </nav>
-                
-                
-                <Outlet/>
-                <MDBTable>
-                    <MDBTableHead>
-                        <tr>
-                        <th scope='col'>#</th>
-                        <th scope='col'>Name</th>
-                        <th scope='col'>In Stock</th>
-                        <th scope='col'>Received</th>
-                        <th scope='col'>Buying Price</th>
-                        <th scope='col'>Selling Price</th>
-                        </tr>
-                    </MDBTableHead>
-                    <MDBTableBody>                          
-                        ## the table is to be deleted. using fetch the table should be filled##
-                        ## https://www.makeuseof.com/react-generate-table-from-json/ ###
-                        <tr>
-                        <th scope='row'>1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <th scope='row'>2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        </tr>
-
-                    </MDBTableBody>
-                </MDBTable>
-            </MDBContainer>
-            
+        <div className="product">
+            {
+               products?(products.map(product=>{
+                    return(
+                    <div key={product.id} className="products">
+                        <img src={product.image} alt=""/>
+                        <h4>Name:{product.name}</h4>
+                        <p>Payment status:{product.payment_status}</p>
+                        <p>Product in stock:{product.no_of_product_in_stock}</p>
+                        <p>Buying Price:{product.buying_price}</p>
+                         <p>selling price:{product.selling_price}</p>
+                          <p>Item received:{product.no_of_received_item}</p>
+                          <p>Spoiled items:{product.no_of_spoiled_item}</p>
+                    </div>
+                    
+                    )
+                })
+            ):(<h2>No product shown</h2>)}
+            </div>
         </>
 
     )
 }
 
 export default Products
+//  :no_of_product_in_stock, :buying_price, :selling_price, :no_of_spoiled_item,:clerk_id
 
 
 // const MovieList = ({ movies }) => {

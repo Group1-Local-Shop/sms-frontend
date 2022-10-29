@@ -110,14 +110,7 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                 </form>
                 
             </div>
-            <Merchant password={password} setPassword={setPassword} 
-            username={username} setUsername={setUsername}
-            passwordConfirmation={passwordConfirmation} setPasswordConfirmation={setPasswordConfirmation} 
-            phoneNo={phoneNo} setPhoneNo={setPhoneNo} 
-            lastName={lastName} setLastName={setLastName} 
-            firstName={firstName} setFirstName={setFirstName} 
-            email={email} setEmail={setEmail} 
-            role={role} setRole={setRole}/>
+            
         </>
 
     )

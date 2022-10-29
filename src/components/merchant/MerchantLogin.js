@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import LoginForm from "./LoginForm";
-import { useContext } from "react";
-import { myContext } from "./context/Context";
+import React, { useContext, useState } from 'react'
 import {
     MDBContainer,
     MDBNavbar,
@@ -13,18 +10,18 @@ import {
     MDBCollapse,
     MDBIcon
     } from 'mdb-react-ui-kit';
+import { myContext } from '../context/Context';
 
-function Login() {
-  const [showLogin, setShowLogin] = useState(true);
-  const[admin,setAdmin]=useState([])
+const MerchantLogin = () => {
+    const [merchant,setMerchant]=useState([])
 const{password,username,setUsername,setPassword}=useContext(myContext)
  const handleSubmit=(e)=>{
         e.preventDefault();
-  fetch("http://localhost:3000/authentics",{
+  fetch("http://localhost:3000/auths",{
     method:"POST",
     headers:{"Content-Type": "application/json"},
     body:JSON.stringify({
-            admin:{ 
+            merchant:{ 
             username: username,
             password: password}
         })
@@ -32,12 +29,12 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
    .then((resp)=>resp.json())
     .then(data=>{
       localStorage.setItem("token",data.token)
-      setAdmin(data.clerk)
+      setMerchant(data.clerk)
     
       setPassword("");
      setUsername('')
     })
-  }
+}
   return (
     <div>
       <form className="admin" onSubmit={handleSubmit}>
@@ -58,12 +55,11 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
       </form>
      <div className="signup"> 
       <MDBNavbarItem>
-          <MDBNavbarLink href='/Adminsignup'>Create admin account</MDBNavbarLink>
-            </MDBNavbarItem>
+        <MDBNavbarLink href='/clerk'>Don't have acount create one</MDBNavbarLink>
+        </MDBNavbarItem>
             </div>
     </div>
-  );
+  )
 }
-export default Login;
 
-// :"Mumboo1234",role:"admin" ,username:"clement3"
+export default MerchantLogin
