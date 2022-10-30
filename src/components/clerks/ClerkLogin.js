@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { myContext } from '../context/Context'
+import { useNavigate } from 'react-router-dom';
 import {
     MDBContainer,
     MDBNavbar,
@@ -15,6 +16,7 @@ import {
 const ClerkLogin = () => {
   const [clerk,setClerk]=useState([])
 const{password,username,setUsername,setPassword}=useContext(myContext)
+const navigate=useNavigate()
  const handleSubmit=(e)=>{
         e.preventDefault();
   fetch("http://localhost:3000/api/v1/login",{
@@ -26,14 +28,25 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
             password: password}
         })
         })
-   .then((resp)=>resp.json())
-    .then(data=>{
+   .then((resp)=>{
+    if(resp.ok){
+        resp.json()
+        .then(data=>{
       localStorage.setItem("token",data.token)
       setClerk(data.clerk)
-    
+    navigate("/")
       setPassword("");
      setUsername('')
     })
+    }
+    else{
+        resp.json()
+        .then(error=>console.log(error))
+        navigate("/clerk")
+    }
+    
+   })
+    
   }
   return (
     <div>
