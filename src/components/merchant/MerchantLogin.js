@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react'
+import { myContext } from '../context/Context'
+import { useNavigate } from 'react-router-dom';
 import {
     MDBContainer,
     MDBNavbar,
@@ -10,10 +12,11 @@ import {
     MDBCollapse,
     MDBIcon
     } from 'mdb-react-ui-kit';
-import { myContext } from '../context/Context';
+
 
 const MerchantLogin = () => {
     const [merchant,setMerchant]=useState([])
+    const navigate=useNavigate()
 const{password,username,setUsername,setPassword}=useContext(myContext)
  const handleSubmit=(e)=>{
         e.preventDefault();
@@ -21,18 +24,27 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
     method:"POST",
     headers:{"Content-Type": "application/json"},
     body:JSON.stringify({
-            merchant:{ 
+            clerk:{ 
             username: username,
             password: password}
         })
         })
-   .then((resp)=>resp.json())
-    .then(data=>{
+   .then((resp)=>{
+    if(resp.ok){
+        resp.json()
+        .then(data=>{
       localStorage.setItem("token",data.token)
       setMerchant(data.clerk)
-    
+    navigate("/")
       setPassword("");
      setUsername('')
+    })
+    }
+    else{
+        resp.json()
+        .then(error=>console.log(error))
+        navigate("/clerk")
+    }
     })
 }
   return (

@@ -10,7 +10,7 @@ import Merchant from "../merchant/Merchant"
 function AddAdmins() {
     const {admin,setAdmin,username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
-,phoneNo,setPhoneNo}=useContext(myContext)
+,phoneNo,setPhoneNo,registration,setRegistration}=useContext(myContext)
     
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -29,7 +29,9 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
             first_name: firstName,
             last_name:lastName,
             role:role,
-            phone_no:phoneNo}
+            phone_no:phoneNo,
+            registration_link_id:registration
+        }
         })
         })
         .then((resp)=>resp.json())
@@ -46,6 +48,7 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
             setLastName("")
             setRole("")
             setPhoneNo("")
+            setRegistration("")
         })
         
     }
@@ -105,6 +108,11 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                         <input type="text" placeholder="Enter role" 
                         name="role" value={role} 
                         onChange={(e)=>setRole(e.target.value)}/>
+                    </label>
+                    <label className="email">
+                        registration id:
+                        <input type="number" name="email" placeholder="please enter your registration number"
+                        value={registration} onChange={(e)=>setRegistration(e.target.value)}/>
                     </label>
                    <button className="btn">submit</button>
                 </form>

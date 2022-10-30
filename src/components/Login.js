@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import LoginForm from "./LoginForm";
 import { useContext } from "react";
 import { myContext } from "./context/Context";
+import { useNavigate } from 'react-router-dom';
+
 import {
     MDBContainer,
     MDBNavbar,
@@ -17,6 +19,7 @@ import {
 function Login() {
   const [showLogin, setShowLogin] = useState(true);
   const[admin,setAdmin]=useState([])
+  const navigate=useNavigate()
 const{password,username,setUsername,setPassword}=useContext(myContext)
  const handleSubmit=(e)=>{
         e.preventDefault();
@@ -24,19 +27,28 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
     method:"POST",
     headers:{"Content-Type": "application/json"},
     body:JSON.stringify({
-            admin:{ 
+            clerk:{ 
             username: username,
             password: password}
         })
         })
-   .then((resp)=>resp.json())
-    .then(data=>{
+   .then((resp)=>{
+    if(resp.ok){
+        resp.json()
+        .then(data=>{
       localStorage.setItem("token",data.token)
       setAdmin(data.clerk)
-    
+    navigate("/")
       setPassword("");
      setUsername('')
     })
+    }
+    else{
+        resp.json()
+        .then(error=>console.log(error))
+        navigate("/clerk")
+    }
+  })
   }
   return (
     <div>
@@ -66,4 +78,3 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
 }
 export default Login;
 
-// :"Mumboo1234",role:"admin" ,username:"clement3"
