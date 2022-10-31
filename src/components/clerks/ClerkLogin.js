@@ -32,9 +32,10 @@ const navigate=useNavigate()
     if(resp.ok){
         resp.json()
         .then(data=>{
-      localStorage.setItem("token",data.token)
-      setClerk(data.clerk)
-    navigate("/")
+       /*localStorage.setItem("token",data.token)*/
+      /*setClerk(data.clerk)*/
+      localStorage.setItem("userInfo",JSON.stringify(data))
+     navigate("/")
       setPassword("");
      setUsername('')
     })
@@ -68,7 +69,7 @@ const navigate=useNavigate()
       </form>
      <div className="signup"> 
     <MDBNavbarItem>
-    <MDBNavbarLink href='/merchant'>MerchantSignup</MDBNavbarLink>
+    <MDBNavbarLink href='/clerk'>ClerkSignup</MDBNavbarLink>
     </MDBNavbarItem>
             </div>
     </div>
