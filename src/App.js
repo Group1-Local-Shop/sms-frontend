@@ -16,6 +16,10 @@ import Clerk from './components/clerks/Clerk';
 import Login from './components/Login';
 import ClerkLogin from './components/clerks/ClerkLogin';
 import MerchantLogin from './components/merchant/MerchantLogin';
+import Landing from './components/admin/Landing'
+import Prods from './components/admin/Prods'
+import ClerkList from './components/admin/ClerkList'
+import AddClerks from './components/admin/AddClerks'
 
 
 
@@ -64,6 +68,10 @@ function App() {
          <Route path="adminlogin" element={<Login/>}/>
          <Route path="login" element={<ClerkLogin/>}/>
            <Route path="merchantLogin" element={<MerchantLogin/>}/>
+        <Route path='/landing' element={<Landing/>}/>
+        <Route path='/prods' element={<Prods/>}/>
+        <Route path='/clerk-list' element={<ClerkList/>}/>
+        <Route path='/add-clerk' element={<AddClerks/>}/>
         <Route path='*' element={<Page404 />} />
 
       </Routes>
