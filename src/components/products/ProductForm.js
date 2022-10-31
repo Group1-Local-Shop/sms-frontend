@@ -3,6 +3,14 @@ import { MDBInputGroup, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdo
 
 
 function ProductForm() {
+const handleSubmit=(e)=>{
+        e.preventDefault();
+        fetch("http://localhost:3000/products",{
+            method:"POST",
+          headers: {
+            "Content-Type": "application/json",
+           Accept: "application/json"
+        },})}
 
     /*  https://www.geeksforgeeks.org/how-to-pass-data-into-table-from-a-form-using-react-components/   */
 

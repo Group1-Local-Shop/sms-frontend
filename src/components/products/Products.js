@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer, MDBBtn } from 'mdb-react-ui-kit';
 import { Link, Outlet } from 'react-router-dom'
 import axios from "axios";
+import ProductDetails from "./ProductDetails";
 
 
 function Products() {
@@ -27,6 +28,8 @@ useEffect(()=>{
                          <p>selling price:{product.selling_price}</p>
                           <p>Item received:{product.no_of_received_item}</p>
                           <p>Spoiled items:{product.no_of_spoiled_item}</p>
+                          <ProductDetails productId={product.id} products={products} setProducts={setProducts} 
+                          status={product.payment_status} stock={product.no_of_product_in_stock} spoiled={product.no_of_spoiled_item}/>
                     </div>
                     
                     )
@@ -40,7 +43,7 @@ useEffect(()=>{
 
 export default Products
 //  :no_of_product_in_stock, :buying_price, :selling_price, :no_of_spoiled_item,:clerk_id
-
+// payment_status, :no_of_product_in_stock,  :no_of_spoiled_item
 
 // const MovieList = ({ movies }) => {
 //     return (
