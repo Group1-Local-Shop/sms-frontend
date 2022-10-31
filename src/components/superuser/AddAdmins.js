@@ -4,6 +4,7 @@ import { myContext } from "../context/Context"
 import Merchant from "../merchant/Merchant"
 
 
+
 // :username, :password, :email,:role,:first_name,:last_name, :phone_no, :password_confirmation)
   
 
@@ -116,6 +117,7 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                     </label>
                    <button className="btn">submit</button>
                 </form>
+                
                 
             </div>
             
