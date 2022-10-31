@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 import Page404 from './Page404';
 import ProductForm from './components/products/ProductForm';
 
+
 import AddAdmins from './components/superuser/AddAdmins';
 import { useState,useEffect } from 'react';
 import Merchant from './components/merchant/Merchant';
@@ -63,6 +64,7 @@ function App() {
         <Route path="clerk" element={<Clerk/>}/>
          <Route path="adminlogin" element={<Login/>}/>
          <Route path="login" element={<ClerkLogin/>}/>
+        
            <Route path="merchantLogin" element={<MerchantLogin/>}/>
         <Route path='*' element={<Page404 />} />
 
