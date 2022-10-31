@@ -8,7 +8,7 @@ import ProductDetails from "./ProductDetails";
 function Products() {
 const [products, setProducts]=useState([])
 useEffect(()=>{
- axios.get("http://localhost:3000/products")
+ axios.get("https://pure-springs-29748.herokuapp.com/products")
  .then(product=>setProducts(product.data))
 },[]) 
     return (
