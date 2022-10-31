@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer, MDBBtn } from 'mdb-react-ui-kit';
-import { Link, Outlet } from 'react-router-dom'
+// import { Link, Outlet } from 'react-router-dom'
 import axios from "axios";
 import ProductDetails from "./ProductDetails";
 
