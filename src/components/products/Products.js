@@ -27,6 +27,7 @@ useEffect(()=>{
                         <img src={product.image} alt=""/>
                         <p>Name:{product.name}</p>
                         <p>Payment status:{product.payment_status}</p>
+                        
                         <p>Product in stock:{product.no_of_product_in_stock}</p>
                         <p>Buying Price:{product.buying_price}</p>
                          <p>selling price:{product.selling_price}</p>
@@ -47,26 +48,3 @@ useEffect(()=>{
 }
 
 export default Products
-//  :no_of_product_in_stock, :buying_price, :selling_price, :no_of_spoiled_item,:clerk_id
-// payment_status, :no_of_product_in_stock,  :no_of_spoiled_item
-
-// const MovieList = ({ movies }) => {
-//     return (
-//       <>
-//         <h1>Movie List</h1>
-//         <ul>
-//           {movies.map(movie => {
-//             return (
-//               <li key={movie.id}>
-//                 <Link to={`/movies/${movie.id}`}>
-//                   {movie.title}
-//                     </Link>
-//               </li>
-//              )
-//            })}
-//         </ul>
-//       </>
-//     )
-//   }
-
-

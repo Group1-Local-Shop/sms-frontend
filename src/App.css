@@ -222,3 +222,8 @@ h3{
     background-position-x: 500%;
   }
 }
+.chart{
+  width: 50%;
+  height: 30%;
+ margin-left: 20%;
+}
