@@ -27,7 +27,7 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
     method:"POST",
     headers:{"Content-Type": "application/json"},
     body:JSON.stringify({
-            clerk:{ 
+            admin:{ 
             username: username,
             password: password}
         })
@@ -38,7 +38,7 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
         .then(data=>{
       localStorage.setItem("token",data.token)
       setAdmin(data.clerk)
-    navigate("/")
+    navigate("/chart")
       setPassword("");
      setUsername('')
     })
@@ -46,7 +46,7 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
     else{
         resp.json()
         .then(error=>console.log(error))
-        navigate("/clerk")
+        navigate("/chart")
     }
   })
   }

@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import Chart from 'chart.js/auto';
-export default class LineChart extends Component {
+export default class Charts extends Component {
 
 	chartRef = React.createRef();
 
@@ -11,7 +11,13 @@ export default class LineChart extends Component {
 			type: "line",
 			data: {
 				labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-				datasets: [{ 
+				datasets: [{
+					label: "Store name",
+					borderColor: "#3e95cd",
+					backgroundColor: "#7bb6dd",
+					fill: false,
+				},
+					{ 
 					data: [86,114,106,106,107,111,133],
 					label: "Total",
 					borderColor: "#3e95cd",

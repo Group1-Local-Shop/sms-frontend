@@ -24,7 +24,7 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
     method:"POST",
     headers:{"Content-Type": "application/json"},
     body:JSON.stringify({
-            clerk:{ 
+            merchant:{ 
             username: username,
             password: password}
         })
@@ -35,7 +35,7 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
         .then(data=>{
       localStorage.setItem("token",data.token)
       setMerchant(data.clerk)
-    navigate("/")
+    navigate("/storeChart")
       setPassword("");
      setUsername('')
     })
