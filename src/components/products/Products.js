@@ -20,7 +20,8 @@ useEffect(()=>{
         <h3 className="me">Welcome to Glama store</h3>  
         <div className="product">
             {
-               products?(products.map(product=>{
+
+            products?(products.filter((product)=>product.payment_status =="approved").map(product=>{
                     return(
                     <div key={product.id} className="products">
                         <img src={product.image} alt=""/>
