@@ -1,10 +1,13 @@
 import React, {useState, useContext} from 'react'
 import { myContext } from '../context/Context'
+import { useNavigate } from 'react-router-dom';
+
 
 const Merchant = () => {
     const {username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
 ,merchant,setMerchant}=useContext(myContext)
+const navigate=useNavigate()
 
    const handleSubmit=(e)=>{
     e.preventDefault();
@@ -25,9 +28,12 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
             last_name:lastName,
             role:role}
         })
-        .then(res=>res.json())
-        .then(data=>{
+        .then(res=>{
+            if(res.ok){
+                res.json()
+                .then(data=>{
             localStorage.setItem("jwt", data.jwt);
+            navigate("/storeChart")
            setMerchant(data.merchant)
            setMerchant(data, ...merchant)
            setUsername("")
@@ -36,6 +42,14 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
            setPasswordConfirmation("")
            setRole("")
         })
+            }
+            else{
+                res.json()
+        .then(error=>console.log(error))
+        navigate("/")
+            }
+        })
+        
     })
    }
    

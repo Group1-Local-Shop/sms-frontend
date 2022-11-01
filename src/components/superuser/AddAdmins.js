@@ -2,6 +2,8 @@ import axios from "axios"
 import React, { useContext, useState } from "react"
 import { myContext } from "../context/Context"
 import Merchant from "../merchant/Merchant"
+import { useNavigate } from 'react-router-dom';
+
 
 
 // :username, :password, :email,:role,:first_name,:last_name, :phone_no, :password_confirmation)
@@ -11,7 +13,7 @@ function AddAdmins() {
     const {admin,setAdmin,username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
 ,phoneNo,setPhoneNo,registration,setRegistration}=useContext(myContext)
-    
+    const navigate=useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault();
         fetch("http://localhost:3000/admins",{
@@ -34,10 +36,13 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
         }
         })
         })
-        .then((resp)=>resp.json())
-        .then((data)=>{
+        .then((resp)=>{
+            if(resp.ok){
+         resp.json()
+         .then((data)=>{
             console.log(data)
             localStorage.setItem("jwt", data.jwt);
+            navigate("/chart")
            setAdmin(data.admin)
             setAdmin([data, ...admin])
             setUsername("")
@@ -50,6 +55,15 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
             setPhoneNo("")
             setRegistration("")
         })
+            }
+            else{
+        resp.json()
+        .then(error=>console.log(error))
+        
+    }
+        })
+       
+        
         
     }
    console.log(username)
@@ -116,6 +130,7 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                     </label>
                    <button className="btn">submit</button>
                 </form>
+                
                 
             </div>
             
