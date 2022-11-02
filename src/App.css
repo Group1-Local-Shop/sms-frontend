@@ -14,6 +14,15 @@
   
 }
 
+.btns{
+  margin: 100px;
+ margin-top: 10px;
+  width: 200px;
+  border-radius: 10px;
+  border:solid 1px ;
+  
+}
+
 .username,.password,.password-confirm,.email, .first, .last, .num, .role{
    width: 30%;
   text-align: center;
@@ -29,13 +38,13 @@
  
 }
 .btn{
- margin: 150px;
- margin-top: 10px;
-  width: 200px;
+ border: 3px;
+ padding: 10px;
+  width: 90px;
   border-radius: 10px;
   border:solid 1px ;
-  color: white;
-  
+  color: rgb(20, 18, 18);
+  justify-content: space-evenly;
 }  
 .product{
   display: flex;
@@ -43,11 +52,15 @@
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
+    overflow: scroll;
+    height: 1000px;
+    
    
 }
 .products{
   align-items: center;
    border: solid 1px #ccc;
+   background-color: rgb(190, 185, 185);
 }
 .product img{
    width: 200px;
@@ -60,12 +73,15 @@
 }
 .product p{
   width: 200px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .signup{
   position:relative;
   width:500px ;
   text-align: center;
+  margin-top: 70px;
 }
 
 .signup a{

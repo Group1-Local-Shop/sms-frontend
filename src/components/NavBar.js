@@ -15,9 +15,9 @@ import {
     const [showNav, setShowNav] = useState(false);
 
     return (
-        <MDBNavbar expand='lg' light bgColor='light'>
+        <MDBNavbar  expand='lg' light bgColor='dark'>
         <MDBContainer fluid>
-            <MDBNavbarBrand href='/'>LocalShop</MDBNavbarBrand>
+            <MDBNavbarBrand style={{color : "white"}} href='/'>LocalShop</MDBNavbarBrand>
             <MDBNavbarToggler
             type='button'
             aria-expanded='false'
@@ -27,28 +27,28 @@ import {
             <MDBIcon icon='bars' fas />
             </MDBNavbarToggler>
             <MDBCollapse navbar show={showNav}>
-            <MDBNavbarNav>
+            <MDBNavbarNav style={{color : "white"}}>
                 <MDBNavbarItem>
-                <MDBNavbarLink aria-current='page' href='/'>
+                <MDBNavbarLink style={{color : "white"}} aria-current='page' href='/'>
                     Home
                 </MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-                <MDBNavbarLink href='/products'>Products</MDBNavbarLink>
+                <MDBNavbarLink style={{color : "white"}} href='/products'>Products</MDBNavbarLink>
                 </MDBNavbarItem>
-                <MDBNavbarItem>
+                {/* <MDBNavbarItem>
                 <MDBNavbarLink href='/suppliers'>Suppliers</MDBNavbarLink>
+                </MDBNavbarItem> */}
+                
+                <MDBNavbarItem>
+                <MDBNavbarLink style={{color : "white"}} href='/merchantLogin'>MerchantLogin</MDBNavbarLink>
                 </MDBNavbarItem>
                 
                 <MDBNavbarItem>
-                <MDBNavbarLink href='/merchantLogin'>MerchantLogin</MDBNavbarLink>
-                </MDBNavbarItem>
-                
-                <MDBNavbarItem>
-                <MDBNavbarLink href='/adminlogin'> adminLogin</MDBNavbarLink>
+                <MDBNavbarLink style={{color : "white"}} href='/adminlogin'> adminLogin</MDBNavbarLink>
                 </MDBNavbarItem>
                 <MDBNavbarItem>
-                <MDBNavbarLink href='/admin'> Admin</MDBNavbarLink>
+                <MDBNavbarLink style={{color : "white"}} href='/admin'> Admin</MDBNavbarLink>
                 </MDBNavbarItem>
 
                

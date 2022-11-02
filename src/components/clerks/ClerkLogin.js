@@ -57,7 +57,7 @@ const navigate=useNavigate()
                         <input type="text" 
                         name="text" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
                          placeholder="Enter your password"
-                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required 
+                        title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" required 
                          value={password} onChange={(e)=>setPassword(e.target.value)} />
 
                     </label>
@@ -65,7 +65,7 @@ const navigate=useNavigate()
                 Username:
                 <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
             </label>
-            <button className="btn">Login</button>
+            <button className="btns">Login</button>
       </form>
      <div className="signup"> 
     <MDBNavbarItem>

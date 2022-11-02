@@ -48,7 +48,7 @@ const[stat,setStat]=useState(status)
 
   return (
     <div>
-       <button onClick={handleModal} className="update">Update</button>
+       <button type="button" class="btn btn-secondary" onClick={handleModal} >Update</button>
        <UpdateModal update={update}>
           <div className='modal-wrapper'>
              <div onClick={handleClose} className='close'>&times;</div>
