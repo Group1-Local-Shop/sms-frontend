@@ -8,7 +8,7 @@ import Products from './components/products/Products'
 import NavBar from './components/NavBar'
 import Page404 from './Page404';
 import ProductForm from './components/products/ProductForm';
-
+import Admin from './components/superuser/Admin';
 
 import AddAdmins from './components/superuser/AddAdmins';
 import { useState,useEffect } from 'react';
@@ -17,6 +17,8 @@ import Clerk from './components/clerks/Clerk';
 import Login from './components/Login';
 import ClerkLogin from './components/clerks/ClerkLogin';
 import MerchantLogin from './components/merchant/MerchantLogin';
+import LineChart from './components/superuser/LineChart';
+import Charts from './components/merchant/Charts';
 import Landing from './components/admin/Landing'
 import Prods from './components/admin/Prods'
 import ClerkList from './components/admin/ClerkList'
@@ -54,6 +56,8 @@ function App() {
     <>
       <header>
         <NavBar />
+       
+       
       </header>
      
       
@@ -68,6 +72,9 @@ function App() {
         <Route path="clerk" element={<Clerk/>}/>
          <Route path="adminlogin" element={<Login/>}/>
          <Route path="login" element={<ClerkLogin/>}/>
+          <Route path="chart" element={ <LineChart/>}/>
+           <Route path="admin" element={ <Admin/>}/>
+           <Route path="storeChart" element={ <Charts/>}/>
         
            <Route path="merchantLogin" element={<MerchantLogin/>}/>
         <Route path='/landing' element={<Landing/>}/>

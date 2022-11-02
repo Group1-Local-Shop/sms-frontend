@@ -47,6 +47,11 @@ import {
                 <MDBNavbarItem>
                 <MDBNavbarLink href='/adminlogin'> adminLogin</MDBNavbarLink>
                 </MDBNavbarItem>
+                <MDBNavbarItem>
+                <MDBNavbarLink href='/admin'> Admin</MDBNavbarLink>
+                </MDBNavbarItem>
+
+               
                 {/* <MDBNavbarItem>
                 <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
                     Disabled
