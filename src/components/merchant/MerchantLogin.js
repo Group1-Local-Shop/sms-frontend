@@ -63,7 +63,7 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
                 Username:
                 <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
             </label>
-            <button className="btn">Login</button>
+            <button className="btns">Login</button>
       </form>
      <div className="signup"> 
       <MDBNavbarItem>

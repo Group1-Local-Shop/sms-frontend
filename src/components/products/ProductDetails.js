@@ -3,6 +3,7 @@ import axios from 'axios'
 import React,{Children, useState,useRef,useEffect} from 'react'
 import AddModal from '../addModal/AddModal'
 import Update from '../modal/Update'
+import '../../App.css';
 const ProductDetails = ({productId,products,setProducts,status,stock,spoiled}) => {
     // console.log(productId)
     //  console.log(products)
@@ -132,10 +133,11 @@ return(
         </form>:null }
          */}
         <div className='buttons'>
+            <div className='btns'>
             <p><Update modal={modal} setmodal={setModal}/></p>
-            <button onClick={handleModal} className="update">Add</button>
-            <button onClick={handleDelete} className="update">Delete</button>
-
+            <button type="button" class="btn btn-success btn-sm"  onClick={handleModal} >Add</button>
+            <button type="button" class="btn btn-danger btn-sm" onClick={handleDelete} >Delete</button>
+         </div>
         </div>
         <AddModal modal={modal}>
            <div className='modal-wrapper'> 
