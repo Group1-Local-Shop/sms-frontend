@@ -19,6 +19,8 @@ import ClerkLogin from './components/clerks/ClerkLogin';
 import MerchantLogin from './components/merchant/MerchantLogin';
 import LineChart from './components/superuser/LineChart';
 import Charts from './components/merchant/Charts';
+import About from './components/About';
+
 import Landing from './components/admin/Landing'
 import Prods from './components/admin/Prods'
 import ClerkList from './components/admin/ClerkList'
@@ -27,6 +29,7 @@ import {  withStyles,Switch } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";
 import Background from "./assets/4.webp"
 import background from "./assets/3.jpg"
+
 
 
 
@@ -75,7 +78,10 @@ function App() {
     <div style={{  backgroundImage: LightMode ? `url(${Background})`: `url(${background})`,backgroundRepeat:"no-repeat"
     ,backgroundSize: "cover" , height : "100vh", color: LightMode ? "black" : "white" }}>
       <header>
-        <NavBar />
+        <NavBar /
+        
+       
+
         <div
           style={{ position: "absolute", top: 0, right: 15, paddingTop: 10 }}
         >
@@ -85,6 +91,7 @@ function App() {
             onChange={() => setLightMode(!LightMode)}
           />
         </div>
+
        
       </header>
      
@@ -103,7 +110,7 @@ function App() {
           <Route path="chart" element={ <LineChart/>}/>
            <Route path="admin" element={ <Admin/>}/>
            <Route path="storeChart" element={ <Charts/>}/>
-        
+        <Route path="about" element={ <About/>}/>
            <Route path="merchantLogin" element={<MerchantLogin/>}/>
         <Route path='/landing' element={<Landing/>}/>
         <Route path='/prods' element={<Prods/>}/>

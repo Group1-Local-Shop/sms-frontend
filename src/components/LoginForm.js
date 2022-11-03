@@ -6,6 +6,7 @@ function LoginForm({ onLogin }) {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const[isLogin,setIsLogin]=useState(false)
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -25,7 +26,9 @@ function LoginForm({ onLogin }) {
         }
         });
     }
-
+   function handleChange(){
+  setIsLogin(isLogin=>!isLogin)
+}
     return (
         <form onSubmit={handleSubmit}>
         <FormField>
