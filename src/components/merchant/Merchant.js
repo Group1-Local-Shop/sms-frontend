@@ -103,8 +103,13 @@ const navigate=useNavigate()
                         name="role" value={role} 
                         onChange={(e)=>setRole(e.target.value)}/>
                     </label>
+
                    <button className="btn">submit</button>
         </form>:<button onClick={handleChange}>Please login</button>}
+
+                   <button className="btns">submit</button>
+        </form>
+
     </div>
   )
 }

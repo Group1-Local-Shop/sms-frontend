@@ -21,11 +21,35 @@ import LineChart from './components/superuser/LineChart';
 import Charts from './components/merchant/Charts';
 import About from './components/About';
 
+import Landing from './components/admin/Landing'
+import Prods from './components/admin/Prods'
+import ClerkList from './components/admin/ClerkList'
+import AddClerks from './components/admin/AddClerks'
+import {  withStyles,Switch } from "@material-ui/core";
+import { grey } from "@material-ui/core/colors";
+import Background from "./assets/4.webp"
+import background from "./assets/3.jpg"
 
 
 
 
 function App() {
+
+  const [LightMode, setLightMode] = useState(true)
+
+  const DarkMode = withStyles({
+    switchBase: {
+      color: grey[300],
+      "&$checked" : {
+        color: grey[500],
+      },
+      "&$checked + $track": {
+        backgroundColor: grey[500],
+      },
+    },
+    checked: {},
+    track: {},
+  })(Switch)
 
   // const [product, setProduct] = useState([])
   // const [store, setStore] = useState([])
@@ -51,10 +75,23 @@ function App() {
   // }, []);
   return (
     <>
+    <div style={{  backgroundImage: LightMode ? `url(${Background})`: `url(${background})`,backgroundRepeat:"no-repeat"
+    ,backgroundSize: "cover" , height : "100vh", color: LightMode ? "black" : "white" }}>
       <header>
-        <NavBar />
+        <NavBar /
         
        
+
+        <div
+          style={{ position: "absolute", top: 0, right: 15, paddingTop: 10 }}
+        >
+          <span>{LightMode ? "Dark" : "Light"} Mode</span>
+          <DarkMode 
+            checked={LightMode}
+            onChange={() => setLightMode(!LightMode)}
+          />
+        </div>
+
        
       </header>
      
@@ -75,9 +112,14 @@ function App() {
            <Route path="storeChart" element={ <Charts/>}/>
         <Route path="about" element={ <About/>}/>
            <Route path="merchantLogin" element={<MerchantLogin/>}/>
+        <Route path='/landing' element={<Landing/>}/>
+        <Route path='/prods' element={<Prods/>}/>
+        <Route path='/clerk-list' element={<ClerkList/>}/>
+        <Route path='/add-clerk' element={<AddClerks/>}/>
         <Route path='*' element={<Page404 />} />
 
       </Routes>
+      </div>
     </>
   );
 }

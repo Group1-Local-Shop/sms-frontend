@@ -16,6 +16,7 @@ import {
     const [showNav, setShowNav] = useState(false);
 
     return (
+
         <header className='header'>
       <div>
         <Link className='links2' to='/'>
@@ -76,6 +77,43 @@ import {
         //         <MDBNavbarItem>
         //         <MDBNavbarLink href='/admin'> Admin</MDBNavbarLink>
         //         </MDBNavbarItem>
+
+        <MDBNavbar  expand='lg' light bgColor='dark'>
+        <MDBContainer fluid>
+            <MDBNavbarBrand style={{color : "white"}} href='/'>LocalShop</MDBNavbarBrand>
+            <MDBNavbarToggler
+            type='button'
+            aria-expanded='false'
+            aria-label='Toggle navigation'
+            onClick={() => setShowNav(!showNav)}
+            >
+            <MDBIcon icon='bars' fas />
+            </MDBNavbarToggler>
+            <MDBCollapse navbar show={showNav}>
+            <MDBNavbarNav style={{color : "white"}}>
+                <MDBNavbarItem>
+                <MDBNavbarLink style={{color : "white"}} aria-current='page' href='/'>
+                    Home
+                </MDBNavbarLink>
+                </MDBNavbarItem>
+                <MDBNavbarItem>
+                <MDBNavbarLink style={{color : "white"}} href='/products'>Products</MDBNavbarLink>
+                </MDBNavbarItem>
+                {/* <MDBNavbarItem>
+                <MDBNavbarLink href='/suppliers'>Suppliers</MDBNavbarLink>
+                </MDBNavbarItem> */}
+                
+                <MDBNavbarItem>
+                <MDBNavbarLink style={{color : "white"}} href='/merchantLogin'>MerchantLogin</MDBNavbarLink>
+                </MDBNavbarItem>
+                
+                <MDBNavbarItem>
+                <MDBNavbarLink style={{color : "white"}} href='/adminlogin'> adminLogin</MDBNavbarLink>
+                </MDBNavbarItem>
+                <MDBNavbarItem>
+                <MDBNavbarLink style={{color : "white"}} href='/admin'> Admin</MDBNavbarLink>
+                </MDBNavbarItem>
+
 
                
         //         {/* <MDBNavbarItem>

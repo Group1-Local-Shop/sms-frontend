@@ -77,6 +77,7 @@ const[isLogin,setIsLogin]=useState(false)
                 Username:
                 <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
             </label>
+
             <div className="signup"> 
    
  
@@ -84,6 +85,8 @@ const[isLogin,setIsLogin]=useState(false)
     
             </div> 
             <button className="btn">Login</button>
+            <button className="btns">Login</button>
+
       </form>
       </div>
        <div style={{backgroundImage:`url(${Back})`}} className="right"></div>
