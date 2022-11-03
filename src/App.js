@@ -19,6 +19,7 @@ import ClerkLogin from './components/clerks/ClerkLogin';
 import MerchantLogin from './components/merchant/MerchantLogin';
 import LineChart from './components/superuser/LineChart';
 import Charts from './components/merchant/Charts';
+import About from './components/About';
 
 
 
@@ -52,6 +53,7 @@ function App() {
     <>
       <header>
         <NavBar />
+        
        
        
       </header>
@@ -71,7 +73,7 @@ function App() {
           <Route path="chart" element={ <LineChart/>}/>
            <Route path="admin" element={ <Admin/>}/>
            <Route path="storeChart" element={ <Charts/>}/>
-        
+        <Route path="about" element={ <About/>}/>
            <Route path="merchantLogin" element={<MerchantLogin/>}/>
         <Route path='*' element={<Page404 />} />
 

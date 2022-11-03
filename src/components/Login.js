@@ -3,6 +3,8 @@ import LoginForm from "./LoginForm";
 import { useContext } from "react";
 import { myContext } from "./context/Context";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Back from "../assets/back.jpg"
 
 import {
     MDBContainer,
@@ -21,6 +23,7 @@ function Login() {
   const[admin,setAdmin]=useState([])
   const navigate=useNavigate()
 const{password,username,setUsername,setPassword}=useContext(myContext)
+const[isLogin,setIsLogin]=useState(false)
  const handleSubmit=(e)=>{
         e.preventDefault();
   fetch("http://localhost:3000/authentics",{
@@ -50,9 +53,17 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
     }
   })
   }
+  function handleChange(){
+  setIsLogin(isLogin=>!isLogin)
+}
   return (
-    <div>
-      <form className="admin" onSubmit={handleSubmit}>
+     <div className='container'>
+      <div className='left'>
+         <div class="header">
+      <h2 class="animation a1">Welcome Back</h2>
+      <h4 class="animation a2">Log in to your account using email and password </h4>
+      </div>
+    <form className="admin" onSubmit={handleSubmit}>
         <label className="password">
                         password:
                         <input type="text" 
@@ -66,13 +77,16 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
                 Username:
                 <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
             </label>
+            <div className="signup"> 
+   
+ 
+         <p className='animation a5'><Link to="/Adminsignup">Don't have acount create one</Link></p>
+    
+            </div> 
             <button className="btn">Login</button>
       </form>
-     <div className="signup"> 
-      <MDBNavbarItem>
-          <MDBNavbarLink href='/Adminsignup'>Create admin account</MDBNavbarLink>
-            </MDBNavbarItem>
-            </div>
+      </div>
+       <div style={{backgroundImage:`url(${Back})`}} className="right"></div>
     </div>
   );
 }

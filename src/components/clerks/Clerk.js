@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import { myContext } from '../context/Context'
 
 const Clerk = () => {
     const {username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
 ,clerk,setClerk,adminId, setAdminId}=useContext(myContext)
+const[isLogin,setIsLogin]=useState(false)
 const handleSubmit=(e)=>{
         e.preventDefault();
         fetch("http://localhost:3000/api/v1/clerks",{
@@ -14,7 +15,7 @@ const handleSubmit=(e)=>{
            Accept: "application/json"
         },
          body:JSON.stringify({
-            admin:{ 
+            clerk:{ 
             username: username,
             password: password,
             password_confirmation: passwordConfirmation,
@@ -41,11 +42,14 @@ const handleSubmit=(e)=>{
             setAdminId("")
         })
     }
+      function handleChange(){
+  setIsLogin(isLogin=>!isLogin)
+}
   return (
   <>
-            <div>
+            <div className='login'>
                 <h1 className="sign">Clerk Signup</h1>
-                <form className="admin" onSubmit={handleSubmit}>
+                {isLogin?<form className="admin" onSubmit={handleSubmit}>
                      <label className="username">
                 Username:
                 <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
@@ -95,7 +99,7 @@ const handleSubmit=(e)=>{
                         onChange={(e)=>setRole(e.target.value)}/>
                     </label>
                    <button className="btn">submit</button>
-                </form>
+                </form>:<button onClick={handleChange}>Please login</button>}
                 
             </div>
             
