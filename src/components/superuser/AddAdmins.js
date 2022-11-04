@@ -13,6 +13,8 @@ function AddAdmins() {
     const {admin,setAdmin,username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
 ,phoneNo,setPhoneNo,registration,setRegistration}=useContext(myContext)
+const[isLogin,setIsLogin]=useState(false)
+
     const navigate=useNavigate()
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -66,6 +68,9 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
         
         
     }
+ function handleChange(){
+  setIsLogin(isLogin=>!isLogin)
+}
    console.log(username)
    console.log(passwordConfirmation)
   
@@ -74,7 +79,7 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
         <>
             <div>
                 <h1 className="sign">Admin Signup</h1>
-                <form className="admin" onSubmit={handleSubmit}>
+               { isLogin?<form className="admin" onSubmit={handleSubmit}>
                      <label className="username">
                 Username:
                 <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
@@ -129,7 +134,7 @@ email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
                         value={registration} onChange={(e)=>setRegistration(e.target.value)}/>
                     </label>
                    <button className="btn">submit</button>
-                </form>
+                </form>:<button onClick={handleChange}>Please login</button>}
                 
                 
             </div>

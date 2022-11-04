@@ -7,6 +7,7 @@ const Merchant = () => {
     const {username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
 ,merchant,setMerchant}=useContext(myContext)
+const[isLogin,setIsLogin]=useState(false)
 const navigate=useNavigate()
 
    const handleSubmit=(e)=>{
@@ -52,10 +53,13 @@ const navigate=useNavigate()
         
     })
    }
+   function handleChange(){
+  setIsLogin(isLogin=>!isLogin)
+}
    
   return (
     <div>
-        <form className='admin' onSubmit={handleSubmit}>
+        {isLogin?<form className='admin' onSubmit={handleSubmit}>
             <label className='username'>
                 Username:
                 <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
@@ -99,8 +103,13 @@ const navigate=useNavigate()
                         name="role" value={role} 
                         onChange={(e)=>setRole(e.target.value)}/>
                     </label>
+
+                   <button className="btn">submit</button>
+        </form>:<button onClick={handleChange}>Please login</button>}
+
                    <button className="btns">submit</button>
         </form>
+
     </div>
   )
 }
