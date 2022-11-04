@@ -1,20 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
-import {
-    MDBContainer,
-    MDBNavbar,
-    MDBNavbarBrand,
-    MDBNavbarToggler,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBNavbarLink,
-    MDBCollapse,
-    MDBIcon
-    } from 'mdb-react-ui-kit';
+import { Link ,useLocation} from 'react-router-dom'
+
 
     export default function NavBar() {
-    const [showNav, setShowNav] = useState(false);
-
+    const location =useLocation()
+     const {pathname}=location
+     const splitPath= pathname.split('/')[1]
     return (
         <header className='header'>
       <div>
@@ -25,17 +16,17 @@ import {
 
       <nav className='navba'>
         <ul>
-             <Link className='links' to='/about'>
+             <Link className={`links ${splitPath===''? 'active-link':''}`} to='/about'>
                 About us
         </Link>
-        <Link className='links' to='/merchantLogin'>
+        <Link className={`links ${splitPath==='merchantLogin'? 'active-link':''}`}to='/merchantLogin'>
                 Merchants
         </Link>
-       <Link className='links' to='adminlogin'>
+       <Link className={`links ${splitPath==='adminlogin'? 'active-link':''}`} to='adminlogin'>
                  Admins
          </Link>
          
-          <Link  className='links' to='/login'>
+          <Link  className={`links ${splitPath==='login'? 'active-link':''}`}to='/login'>
                 Clerks
          </Link>
         </ul>

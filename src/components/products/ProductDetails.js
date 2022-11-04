@@ -24,41 +24,6 @@ const[myProduct,setMyProduct]=useState([])
 
  const userInfo = JSON.parse(localStorage.getItem("userInfo"))
  console.log(userInfo)
-// function handleForm(){
-//     setShowProduct((showProduct)=>!showProduct)
-    
-// }
-
-// const handleUpdate=(e)=>{
-//          e.preventDefault()
-//          fetch(`/products/${productId}`,{
-//             method:"PATCH",
-//             headers:{
-//                 "Content-Type": "application/json",
-//                  Authorization: 'Bearer ' + userInfo.jwt 
-//             },
-//             body: JSON.stringify({
-//                 payment_status:stat,
-//                 no_of_product_in_stock:stocks,
-//                 no_of_spoiled_item:spoil
-//             })
-//          })
-        //  .then(resp=> resp.json)
-//          .then(data=>{
-//              /*localStorage.getItem("token",data.token)*/
-//             const newProduct=products.map(product=>{
-//                 if(product.id===productId){
-//                     return data
-//                 }
-//                 else{
-//                     return product
-//                 }
-//             })
-//             console.log(newProduct)
-//             setProducts(console.log(newProduct))
-//          })
-//          window.location.reload(true)
-// }
 const handleModal=()=>{
 setModal(true)
 
@@ -120,21 +85,10 @@ const handleDelete=()=>{
 }
 return(
 <div>
-    
-    {/* {showProduct ?<form onSubmit={handleUpdate} className="update">
-            <input type="text" value={stat} placeholder="update product status" onChange={(e)=>setStat(e.target.value)}/>
-            <input type="product" value={stocks} placeholder="update number of stock" onChange={(e)=>setStocks(e.target.value)}/>
-            <input type="number" value={spoil} placeholder="update number of spoiled product" onChange={(e)=>setSpoil(e.target.value)}/>
-
-
-            <input type='submit'value="save" className='save'/>
-
-        </form>:null }
-         */}
         <div className='buttons'>
-            <p><Update modal={modal} setmodal={setModal}/></p>
+            <Update modal={modal} setmodal={setModal}/>
             <button onClick={handleModal} className="update">Add</button>
-            <button onClick={handleDelete} className="update">Delete</button>
+            <button onClick={handleDelete} className='del-btn'>Delete</button>
 
         </div>
         <AddModal modal={modal}>

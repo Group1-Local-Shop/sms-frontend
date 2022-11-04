@@ -47,59 +47,67 @@ const handleSubmit=(e)=>{
 }
   return (
   <>
-            <div className='login'>
-                <h1 className="sign">Clerk Signup</h1>
-                {isLogin?<form className="admin" onSubmit={handleSubmit}>
-                     <label className="username">
-                Username:
-                <input type="text" name="username" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
-            </label>
-                    <label className="password">
-                        password:
-                        <input type="text" 
-                        name="text" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+            <div className='modal-body'>
+                
+                <form className="admi" onSubmit={handleSubmit}>
+                    <h1 className="title">Clerk Signup</h1>
+                
+                <div className='row'>
+                <input type="text" name="username"  className="input" placeholder='Enter user name'value={username} onChange={(e)=>setUsername(e.target.value)}/>
+              <label htmlFor='' className="label">Username</label>
+              </div>
+            <div className='row'>
+                   <input type="text"className="input" name="text" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
                          placeholder="Enter your password"
                         title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required 
                          value={password} onChange={(e)=>setPassword(e.target.value)} />
-
-                    </label>
-                    <label className="password-confirm">
-                        Password confirmation:
-                        <input type="password" name="passwordConfirmation" 
+                <label htmlFor='' className="label">Password</label>
+                    </div>
+                     <div className='row'>
+                   
+                        <input type="password" className="input" name="passwordConfirmation" 
                         placeholder="confirm password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                         value={passwordConfirmation}
                          onChange={(e)=> setPasswordConfirmation(e.target.value)}/>
-                    </label>
-                    <label className="email">
-                        Email:
-                        <input type="text" name="email" placeholder="Enter email address"
+                   
+                    <label htmlFor='' className="label">Confirm-password</label>
+                    </div>
+                      <div className='row'>
+                    
+                        <input type="text" name="email" className="input" placeholder="Enter email address"
                         value={email} onChange={(e)=>setEmail(e.target.value)}/>
-                    </label>
-                    <label className="first">
-                        First Name:
-                        <input type="text" name="firstName" placeholder="Enter your first name"
+                    
+                    <label htmlFor='' className="label">Email</label>
+                    </div>
+                    <div className='row'>
+                   
+                        <input type="text" name="firstName" className="input" placeholder="Enter your first name"
                         value={firstName} 
                         onChange={(e)=>setFirstName(e.target.value)}/>
-                    </label>
-                    <label className="last">
-                        Last Name:
-                        <input type="text" name="lastName" placeholder="Enter your last name"
+                    
+                    <label htmlFor='' class="label">First name</label>
+                    </div>
+                       <div className='row'>
+                        <input type="text" name="lastName" className="input" placeholder="Enter your last name"
                         value={lastName} 
                         onChange={(e)=>setLastName(e.target.value)}/>
-                    </label>
-                    <label className="num">
-                        Phone No:
-                        <input type="text" name="phoneno" placeholder="Enter phone number"
+                    <label htmlFor='' className="label">Last Name</label>
+                    </div>
+                     <div className='row'>
+                        <input type="text" name="adminId" className="input" placeholder="Enter phone number"
                         value={adminId} onChange={(e)=>setAdminId(e.target.value)}/>
-                    </label>
-                    <label className="role">
-                        Role:
-                        <input type="text" placeholder="Enter role" 
+                    <label htmlFor='' className="label">Admin No</label>
+                    </div>
+                     <div className='row'>
+                    
+                        <input type="text" className="input" placeholder="Enter role" 
                         name="role" value={role} 
                         onChange={(e)=>setRole(e.target.value)}/>
-                    </label>
-                   <button className="btn">submit</button>
-                </form>:<button onClick={handleChange}>Please login</button>}
+                    
+                    <label htmlFor='' className="label">Role</label>
+                    </div>
+                    <input type="submit" className="submitBtn" value="Sign up"/>
+                </form>
                 
             </div>
             

@@ -6,17 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Back from "../assets/back.jpg"
 
-import {
-    MDBContainer,
-    MDBNavbar,
-    MDBNavbarBrand,
-    MDBNavbarToggler,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBNavbarLink,
-    MDBCollapse,
-    MDBIcon
-    } from 'mdb-react-ui-kit';
+import AdminLogout from "./superuser/AdminLogout";
 
 function Login() {
   const [showLogin, setShowLogin] = useState(true);
@@ -39,8 +29,8 @@ const[isLogin,setIsLogin]=useState(false)
     if(resp.ok){
         resp.json()
         .then(data=>{
-      localStorage.setItem("token",data.token)
-      setAdmin(data.clerk)
+       localStorage.setItem("adminInfo",JSON.stringify(data))
+      setAdmin(data.admin)
     navigate("/chart")
       setPassword("");
      setUsername('')
@@ -84,6 +74,7 @@ const[isLogin,setIsLogin]=useState(false)
     
             </div> 
             <button className="btn">Login</button>
+            <AdminLogout setAdmin={setAdmin}/>
       </form>
       </div>
        <div style={{backgroundImage:`url(${Back})`}} className="right"></div>

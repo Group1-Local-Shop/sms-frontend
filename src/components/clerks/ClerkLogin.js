@@ -3,6 +3,7 @@ import { myContext } from '../context/Context'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Back from "../../assets/back.jpg"
+import Logout from "./Logout"
 
 import {
     MDBContainer,
@@ -15,6 +16,7 @@ import {
     MDBCollapse,
     MDBIcon
     } from 'mdb-react-ui-kit';
+
 
 const ClerkLogin = () => {
   const [clerk,setClerk]=useState([])
@@ -40,6 +42,7 @@ const navigate=useNavigate()
       /*setClerk(data.clerk)*/
       localStorage.setItem("userInfo",JSON.stringify(data))
      navigate("/products")
+     setClerk([data,...clerk])
       setPassword("");
      setUsername('')
     })
@@ -85,6 +88,7 @@ const navigate=useNavigate()
     
             </div>
             <button className="animation a6">Login</button>
+            <Logout setClerk={setClerk}/>
       </form>
       </div>
       <div style={{backgroundImage:`url(${Back})`}} className="right"></div>

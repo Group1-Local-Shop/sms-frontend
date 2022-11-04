@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import Chart from 'chart.js/auto';
+import Admin from "./Admin";
 export default class LineChart extends Component {
 
 	chartRef = React.createRef();
@@ -42,11 +43,14 @@ export default class LineChart extends Component {
 	}
 	render() {
 		return (
+			
 			<div className="chart">
+				<h3 className="me">Welcome to Admin Dashboard</h3>
 				<canvas
 				id="myChart"
 				ref={this.chartRef}
 				/>
+				<Admin/>
 			</div>
 			)
 	}

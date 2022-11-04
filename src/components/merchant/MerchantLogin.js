@@ -3,17 +3,8 @@ import { myContext } from '../context/Context'
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Back from "../../assets/back.jpg"
-import {
-    MDBContainer,
-    MDBNavbar,
-    MDBNavbarBrand,
-    MDBNavbarToggler,
-    MDBNavbarNav,
-    MDBNavbarItem,
-    MDBNavbarLink,
-    MDBCollapse,
-    MDBIcon
-    } from 'mdb-react-ui-kit';
+import MerchantLogout from './MerchantLogout';
+
 
 
 const MerchantLogin = () => {
@@ -36,8 +27,8 @@ const{password,username,setUsername,setPassword}=useContext(myContext)
     if(resp.ok){
         resp.json()
         .then(data=>{
-      localStorage.setItem("token",data.token)
-      setMerchant(data.clerk)
+       localStorage.setItem("merchantInfo",JSON.stringify(data))
+      setMerchant(data.admin)
     navigate("/storeChart")
       setPassword("");
      setUsername('')
@@ -77,9 +68,10 @@ function handleChange(){
              <div className="signup"> 
    
  
-         <p className='animation a5'><Link to="/clerk">Don't have acount create one</Link></p>
+         <p className='animation a5'><Link to="/merchant">Don't have acount create one</Link></p>
     
             </div> 
+            <MerchantLogout setMerchant={setMerchant}/>
             <button className="btn">Login</button>
       </form>
       </div>
