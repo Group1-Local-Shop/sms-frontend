@@ -87,7 +87,7 @@ const navigate=useNavigate()
          <p className='animation a5'><Link to="/clerk">Forgot Password</Link></p>
     
             </div>
-            <button className="animation a6">Login</button>
+           <button className="btn">Login</button>
             <Logout setClerk={setClerk}/>
       </form>
       </div>

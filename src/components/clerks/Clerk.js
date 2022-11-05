@@ -1,10 +1,12 @@
 import React, { useContext,useState } from 'react'
 import { myContext } from '../context/Context'
+import { useNavigate } from 'react-router-dom'
 
 const Clerk = () => {
     const {username,setUsername,password,setPassword,passwordConfirmation,setPasswordConfirmation,
 email,setEmail,firstName,setFirstName,lastName,setLastName,role,setRole
 ,clerk,setClerk,adminId, setAdminId}=useContext(myContext)
+const navigate=useNavigate()
 const[isLogin,setIsLogin]=useState(false)
 const handleSubmit=(e)=>{
         e.preventDefault();
@@ -28,6 +30,7 @@ const handleSubmit=(e)=>{
         })
         .then((resp)=>resp.json())
         .then((data)=>{
+             navigate("/products")
             console.log(data)
             localStorage.setItem("jwt", data.jwt);
            setClerk(data.clerk)

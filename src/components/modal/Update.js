@@ -54,10 +54,13 @@ const[stat,setStat]=useState(status)
              <div onClick={handleClose} className='close'>&times;</div>
               <div className='add-container'>
                 <form onSubmit={handleUpdate} className="update">
+                    <label htmlFor='' className="labe"> product status</label>
             <input type="text" value={stat} placeholder="update product status" onChange={(e)=>setStat(e.target.value)}/>
+                <label htmlFor='' className="labe"> number of product in stock</label>
             <input type="product" value={stocks} placeholder="update number of stock" onChange={(e)=>setStocks(e.target.value)}/>
+                 <label htmlFor='' className="labe"> No of spoiled Item</label>
             <input type="number" value={spoil} placeholder="update number of spoiled product" onChange={(e)=>setSpoil(e.target.value)}/>
-
+            
 
             <input type='submit'value="save" className='save'/>
 

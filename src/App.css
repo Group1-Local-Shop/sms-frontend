@@ -679,12 +679,11 @@ thead {
 }
 .but{
   background-color: red;
-  /* margin: 150px;
- margin-top: 10px; */
+  position:relative ;
+ 
   width: 150px;
   border-radius: 10px;
   border:solid 1px ;
- margin-left: 20px;
- margin-top: 10px;
+  bottom:120px
 
 }

@@ -17,7 +17,7 @@ useEffect(()=>{
 
         <section style={{backgroundColor:'#ddd'}}>
 
-        <h3 className="me">Welcome to Glama store</h3>  
+        <h3 className="me">Welcome to local shop</h3>  
         <div className="product">
         {products.map(product =>{
             return(

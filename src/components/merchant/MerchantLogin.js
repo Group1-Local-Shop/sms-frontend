@@ -71,8 +71,9 @@ function handleChange(){
          <p className='animation a5'><Link to="/merchant">Don't have acount create one</Link></p>
     
             </div> 
-            <MerchantLogout setMerchant={setMerchant}/>
+       
             <button className="btn">Login</button>
+            <MerchantLogout setMerchant={setMerchant}/>
       </form>
       </div>
       <div style={{backgroundImage:`url(${Back})`}} className="right"></div>

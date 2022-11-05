@@ -28,7 +28,7 @@ function About() {
             </div>
             <div className="why-wrapper">
               <div className='why-section'>
-                <h2 className='why-h3'>WHY <element className="why-title">LOCALStore</element></h2>
+                <h2 className='why-h3'>WHY <element className="why-title">LOCALShop</element></h2>
                 <p> We manage for you .create a new store today and lets us keep it moving, no more stock loss</p>
                  
               </div>
